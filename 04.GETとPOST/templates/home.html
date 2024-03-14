@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>ホーム画面</title>
+    </head>
+    <body>
+        <table border="1" align="center">
+            <tr>
+                <!--GET セキュリティあり-->
+                <td>
+                    <h1 align="center">GET送信</h1>
+                    <form method="GET" action="GET_SEC">
+                        <input type="text" name="text" value="テキストボックス"><br>
+                        <input type="number" name="number" value="123"><br>
+                        <input type="date" name="date"><br>
+                        <label><input type="radio" name="radio1" value="1" checked>ラジオボタン1の1</label>
+                        <label><input type="radio" name="radio1" value="2">ラジオボタン1の2</label>
+                        <label><input type="radio" name="radio1" value="3">ラジオボタン1の3</label><br>
+                        <label><input type="radio" name="radio2" value="1" checked>ラジオボタン2の1</label>
+                        <label><input type="radio" name="radio2" value="2">ラジオボタン2の2</label>
+                        <label><input type="radio" name="radio2" value="3">ラジオボタン2の3</label><br>
+                        <label><input type="checkbox" name="check1" value="1">チェックボックス1の1</label>
+                        <label><input type="checkbox" name="check1" value="2">チェックボックス1の2</label>
+                        <label><input type="checkbox" name="check1" value="3">チェックボックス1の3</label><br>
+                        <label><input type="checkbox" name="check2" value="1">チェックボックス2の1</label>
+                        <label><input type="checkbox" name="check2" value="2">チェックボックス2の2</label>
+                        <label><input type="checkbox" name="check2" value="3">チェックボックス2の3</label><br>
+                        <textarea name="plaintext"></textarea>
+                        <input type="hidden" name="hidden" value="hidden">
+                        <input type="submit" value="送信">
+                    </form>
+                </td>
+                <!--POST セキュリティあり-->
+                <td>
+                    <h1 align="center">POST送信</h1>
+                    <form method="POST" action="POST_SEC">
+                        <input type="text" name="text" value="テキストボックス"><br>
+                        <input type="number" name="number" value="123"><br>
+                        <input type="date" name="date"><br>
+                        <label><input type="radio" name="radio1" value="1" checked>ラジオボタン1の1</label>
+                        <label><input type="radio" name="radio1" value="2">ラジオボタン1の2</label>
+                        <label><input type="radio" name="radio1" value="3">ラジオボタン1の3</label><br>
+                        <label><input type="radio" name="radio2" value="1" checked>ラジオボタン2の1</label>
+                        <label><input type="radio" name="radio2" value="2">ラジオボタン2の2</label>
+                        <label><input type="radio" name="radio2" value="3">ラジオボタン2の3</label><br>
+                        <label><input type="checkbox" name="check1" value="1">チェックボックス1の1</label>
+                        <label><input type="checkbox" name="check1" value="2">チェックボックス1の2</label>
+                        <label><input type="checkbox" name="check1" value="3">チェックボックス1の3</label><br>
+                        <label><input type="checkbox" name="check2" value="1">チェックボックス2の1</label>
+                        <label><input type="checkbox" name="check2" value="2">チェックボックス2の2</label>
+                        <label><input type="checkbox" name="check2" value="3">チェックボックス2の3</label><br>
+                        <textarea name="plaintext"></textarea>
+                        <input type="hidden" name="hidden" value="hidden">
+                        <input type="submit" value="送信">
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
