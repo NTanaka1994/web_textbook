@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>{{page_tite | safe}}</title>
+    </head>
+    <body>
+        <table border="1" align="center" cellspacing="0">
+            <tr>
+                <td>
+                    <form method="POST" action="home">
+                        <h2>スレッドの作成</h2>
+                        タイトル:<input type="text" name="title" required><br>
+                        スレッドの説明<br>
+                        <textarea name="intro"></textarea>
+                        <input type="submit" value="送信">
+                    </form>
+                </td>
+            </tr>
+        </table>
+        <table align="center" cellspacing="0">
+            <tr>
+                <td>
+                    <form method="GET" action="home">
+                        <h2>スレッドの検索</h2>
+                        検索ワード:<input type="text" name="word" required>
+                        <input type="submit" value="送信">
+                    </form>
+                </td>>
+            </tr>
+        </table>
+        <table border="1" align="center" cellspacing="0">
+            {{result | safe}}
+        </table>
+    </body>
+</html>

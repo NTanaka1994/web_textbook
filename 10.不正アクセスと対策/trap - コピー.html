@@ -1,0 +1,28 @@
+<head>
+    <style>
+        .design{
+            position: absolute;
+            top:0%;
+            left: 0%;
+        }
+    </style>
+    <script>
+        function trap(){
+            var email = document.getElementById("email").value;
+            var pass = document.getElementById("passwd").value;
+            var res = "メールアドレス:" + email;
+            res = res + "<br>パスワード:" + pass;
+            document.getElementById("trap").innerHTML = res;
+        }
+    </script>
+</head>
+<div id="trap">
+    <div class="design">
+            <h1>罠サイト</h1>
+            <table align="center">
+                <tr><td align="right">メールアドレス</td><td><input type="email" id="email" required></td></tr>
+                <tr><td align="right">パスワード</td><td><input type="password" id="passwd" required></td></tr>
+                <tr><td align="right" colspan="2"><input type="button" value="認証" onclick="trap();"></td></tr>
+            </table>
+    </div>
+</div>

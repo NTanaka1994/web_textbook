@@ -1,0 +1,21 @@
+{{msg | safe}}
+<head>
+    <style>
+        .design{
+            position: absolute;
+            top:0%;
+            left: 0%;
+        }
+    </style>
+</head>
+<div class="design">
+    <p></p>
+    <h1>正常サイト</h1>
+    <table align="center">
+        <form method="POST" action="login">
+            <tr><td align="right">メールアドレス</td><td><input type="email" name="email" required></td></tr>
+            <tr><td align="right">パスワード</td><td><input type="password" name="passwd" required></td></tr>
+            <tr><td align="right" colspan="2"><input type="submit" value="認証"></td></tr>
+        </form>
+    </table>
+</div>

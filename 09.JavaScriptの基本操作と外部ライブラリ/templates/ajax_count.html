@@ -1,0 +1,32 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1><div id="n">0</div></h1>
+        <script>
+            function cnt_inc(){
+                var n = document.getElementById("n").innerHTML;
+                var res = "";
+                var req = new XMLHttpRequest();
+                var url = "http://localhost:5000/ajax?sec=" + n;
+                req.onreadystatechange = function () {
+                    if (req.readyState == 4 && req.status == 200) {
+                        res = req.responseText;
+                    }
+                };
+                req.open("GET", url, false);
+                req.send(null);
+                document.getElementById("n").innerHTML = res;
+                setTimeout(function(){
+                    cnt_inc();
+                },1000);
+            }
+            window.addEventListener("load",function(){
+                setTimeout(function(){
+                    cnt_inc();
+                },1000);
+            });
+        </script>
+    </body>
+</html>

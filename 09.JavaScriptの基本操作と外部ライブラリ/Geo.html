@@ -1,0 +1,69 @@
+<html>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.3.0/dist/leaflet.js"></script>
+<script>
+    var map;
+    var marker=null;
+    function map_init() {
+        map = L.map('map');
+        map.setView([35.40, 136], 15);
+        L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+            attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>�n���@�^�C��</a>"
+        }).addTo(map);
+        marker = L.marker([35.40, 136]).bindPopup("���{�̒��S").bindTooltip("���{�̒��S").addTo(map);
+    }
+</script>
+<script>
+    function OnButtonClick() {
+        console.log(marker.length);
+        text = document.getElementById("geonum").value;
+        url = "https://geoapi.heartrails.com/api/json?method=searchByPostal&postal=" + text;
+        var res = "";
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function () {
+            if (req.readyState == 4 && req.status == 200) {
+                res = req.responseText;
+            }
+        };
+        req.open("GET", url, false);
+        req.send(null);
+        let jsn = JSON.parse(res);
+        var tmp1 = jsn.response.location;
+        var x = [];
+        var y = [];
+        var ans = "<h2>" + tmp1[0].prefecture + tmp1[0].city + "</h2>\n"
+        ans = ans + "<ul>\n";
+        for (var i = 0; i < tmp1.length; i = i + 1) {
+            ans = ans + "\t<li>" + tmp1[i].town + "</li>\n";
+            x.push(Number(tmp1[i].x));
+            y.push(Number(tmp1[i].y));
+        }
+        ans = ans + "</ul>\n���Ɍ������鎞�̓����[�h�{�^���������Ă�������"
+        target = document.getElementById("out");
+        target.innerHTML = ans;
+        //�n�}�@�\
+        let sumx = x.reduce(function (sum, element) {
+            return sum + element;
+        }, 0);
+        let sumy = y.reduce(function (sum, element) {
+            return sum + element;
+        }, 0);
+        //map = L.map('map');
+        map.setView([sumy / y.length, sumx / x.length], 15);
+        L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+            attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>�n���@�^�C��</a>"
+        }).addTo(map);
+        for (var i = 0; i < x.length; i = i + 1) {
+            marker = L.marker([y[i], x[i]]).bindPopup(tmp1[i].town).bindTooltip(tmp1[i].town).addTo(map);
+        }
+        console.log(marker)
+    }
+</script>
+<body onload="map_init()">
+<h1>�X�֔ԍ����n�C�t�������œ���Ă�������</h1>
+<input type="number" id="geonum">
+<input type="button" value="Search" onclick="OnButtonClick();">
+<div id="out"></div>
+<div id="map" style="width: 40%;height: 400px;"></div>
+ </body>
+</html>

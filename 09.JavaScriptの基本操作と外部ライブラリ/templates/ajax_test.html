@@ -1,0 +1,23 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <h1>非同期通信の結果</h1>
+        <div id="ajax"></div>
+        <script>
+            var res = "";
+            var req = new XMLHttpRequest();
+            var url = "http://localhost:5000/ajax";
+            var target = document.getElementById("ajax");
+            req.onreadystatechange = function () {
+                if (req.readyState == 4 && req.status == 200) {
+                    res = req.responseText;
+                }
+            };
+            req.open("GET", url, false);
+            req.send(null);
+            target.innerHTML = res;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <script>
+            function fizzbuzz(){
+                var n = Number(document.getElementById("n").value);
+                var cont = "";
+                var target = document.getElementById("out");
+                for(var i = 1; i <= n; i = i + 1){
+                    if((i % 3) == 0 && (i % 5) == 0){
+                        cont = cont + "FizzBuzz<br>";
+                    }
+                    else if((i % 3) == 0){
+                        cont = cont + "Fizz<br>";
+                    }
+                    else if((i % 5) == 0){
+                        cont = cont + "Buzz<br>";
+                    }
+                    else{
+                        cont = cont + i.toString() + "<br>";
+                    }
+                }
+                target.innerHTML = cont;
+            };
+        </script>
+    </head>
+    <body>
+        <input type="num" id="n"><input type="button" onclick="fizzbuzz()" value="FizzBuzz">
+        <div id="out"></div>
+    </body>
+</html>

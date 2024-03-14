@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>{{title | safe}}</title>
+    </head>
+    <body>
+        <h2 align="center">{{title | safe}}</h2>
+        <h4 align="right"><a href="home">ホームに戻る</a></h4>
+        <table align="center">
+            {{result | safe}}
+        </table>
+        <table align="center">
+            <tr>
+                <td>
+                    <form method="POST" action="thread">
+                        <textarea name="cont"></textarea>
+                        <input type="hidden" name="id" value="{{thread_id | safe}}">
+                        <input type="submit" value="投稿">
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

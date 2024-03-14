@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <script>
+            function writeloc(){
+                var num = document.getElementById("postnum").value;
+                var res = "";
+                var req = new XMLHttpRequest();
+                var url = "https://geoapi.heartrails.com/api/json?method=searchByPostal&postal=" + num;
+                req.onreadystatechange = function () {
+                    if (req.readyState == 4 && req.status == 200) {
+                        res = req.responseText;
+                    }
+                };
+                req.open("GET", url, false);
+                req.send(null);
+                var jsn = JSON.parse(res);
+                var tmp = jsn.response.location;
+                var pref = tmp[0].prefecture;
+                var city = tmp[0].city;
+                var town = tmp[0].town;
+                document.getElementById("loc").value = pref + city + town;
+            };
+        </script>
+    </head>
+    <body>
+        <h1>郵便番号をハイフン無しで入力</h1>
+        <input type="num" id="postnum">
+        <input type="button" onclick="writeloc()" value="反映"><br>
+        <input type="text" id="loc">
+    </body>
+</html>

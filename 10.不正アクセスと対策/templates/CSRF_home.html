@@ -1,0 +1,9 @@
+利用者のお名前：{{ user_name | safe }}
+<form action="money" method="POST">
+    <table>
+        <tr><td align="right">金融機関名</td><td><input type="text" name="bank"></td></tr>
+        <tr><td align="right">送金先口座番号</td><td><input type="num" name="src"></td></tr>
+        <tr><td align="right">金額</td><td><input type="num" name="val">円</td></tr>
+        <tr><td align="right" colspan="2"><input type="submit" value="送信"></td></tr>
+    </table>
+</form>

